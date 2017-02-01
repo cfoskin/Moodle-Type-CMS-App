@@ -5,6 +5,10 @@ const ModuleSchema = mongoose.Schema({
     name: {
         type: String,
         required: true
+    },
+    userId: {
+    	type: String,
+    	require: false
     }
 });
 
