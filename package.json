@@ -1,0 +1,32 @@
+{
+  "name": "moodle-app",
+  "version": "1.0.0",
+  "description": "moodle type CMS app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cfoskin/moodle-app.git"
+  },
+  "author": "Colum Foskin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cfoskin/moodle-app/issues"
+  },
+  "homepage": "https://github.com/cfoskin/moodle-app#readme",
+  "dependencies": {
+    "angular": "^1.6.1",
+    "body-parser": "1.15.2",
+    "express": "4.14.0",
+    "mongodb": "2.2.19",
+    "mongoose": "4.6.3",
+    "morgan": "1.7.0"
+  },
+  "devDependencies": {
+    "istanbul": "0.4.5",
+    "mocha": "3.1.2",
+    "supertest": "2.0.1"
+  }
+}

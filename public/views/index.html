@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="moodleApp">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<head>
+  <base href="/">
+<title>
+    Moodle-Type Application
+</title>
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<h3 class="text-center">
+Moodle-Type Application</h3>
+<br>
+<hr>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+    </script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js">
+    </script>
+    <div class="container" id="container" align="middle">
+        <div class="row">
+            <div ng-view></div>
+        </div>
+        <script src="../support/angular.js"></script>
+        <script src="../support/angular-route.js"></script>
+        <script src="../app.js"></script>
+        <script src="../controllers/logInController.js"></script>
+</body>
+
+</html>
