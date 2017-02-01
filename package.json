@@ -18,6 +18,8 @@
   "homepage": "https://github.com/cfoskin/moodle-app#readme",
   "dependencies": {
     "angular": "^1.6.1",
+    "angular-animate": "^1.6.1",
+    "angularjs-toaster": "^2.1.0",
     "body-parser": "1.15.2",
     "express": "4.14.0",
     "mongodb": "2.2.19",

@@ -1,26 +1,6 @@
 'use strict';
 const User = require('../models/User');
 
-exports.login = (req, res) => {
-    const user = req.body;
-    User.findOne({ username: user.username })
-        .then(foundUser => {
-            if (foundUser && foundUser.password === foundUser.password) {
-                return res.status(201).json(foundUser);
-            } else {
-                return res.status(401).json({
-                    message: 'wrong data',
-                    error: err
-                });
-            }
-        }).catch(err => {
-            return res.status(404).json({
-                message: 'user not found',
-                error: err
-            });
-        })
-};
-
 exports.signUp = (req, res) => {
     const user = new User(req.body);
     user.save()
@@ -36,11 +16,13 @@ exports.signUp = (req, res) => {
 };
 
 exports.getUser = (req, res) => {
-    const user = req.body;
-    User.findOne({ id: user._id })
-        .then(foundUser => {
-            return res.status(201).json(foundUser);
-        }).catch(err => {
+    User.findOne({ _id: req.params.id })
+        .then(user => {
+            if (user != null) {
+                return res.status(200).json(user)
+            }
+        })
+        .catch(err => {
             return res.status(404).json({
                 message: 'user not found',
                 error: err

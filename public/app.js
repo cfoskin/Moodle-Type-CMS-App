@@ -1,5 +1,5 @@
 'use strict';
-var moodleApp = angular.module('moodleApp', ['ngRoute']);
+var moodleApp = angular.module('moodleApp', ['ngRoute', 'toaster', 'ngAnimate']);
 //routes
 moodleApp.config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
@@ -7,6 +7,10 @@ moodleApp.config(['$routeProvider', '$locationProvider',
             .when('/', {
                 templateUrl: '/partials/login.html',
                 controller: 'logInController'
+            })
+            .when('/home', {
+                templateUrl: '/partials/home.html',
+                controller: 'homeController'
             })
             .otherwise({
                 redirectTo: '/'

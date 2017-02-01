@@ -3,6 +3,7 @@ const Module = require('../models/module');
 
 exports.addModule = (req, res) => {
     const module = new Module(req.body);
+    console.log(module);
     module.save()
         .then(newModule => {
             return res.status(201).json(newModule);
@@ -16,13 +17,15 @@ exports.addModule = (req, res) => {
 };
 
 exports.getModule = (req, res) => {
-    const module = req.body;
-    Module.findOne({ id: module._id })
-        .then(foundModule => {
-               return res.status(201).json(foundModule);
-        }).catch(err => {
+    Module.findOne({ _id: req.params.id })
+        .then(module => {
+            if (module != null) {
+                return res.status(200).json(module)
+            }
+        })
+        .catch(err => {
             return res.status(404).json({
-                message: 'module not found',
+                message: 'id not found',
                 error: err
             });
         })
@@ -33,4 +36,33 @@ exports.getModules = (req, res) => {
         .then(modules => {
             return res.status(200).json(modules);
         })
+};
+
+exports.updateModule = (req, res) => {
+    console.log(req.body);
+    Module.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { 'new': true })
+        .then(module => {
+            if (module != null) {
+                return res.status(200).json(module);
+            }
+        })
+        .catch(err => {
+            return res.status(404).json({
+                message: 'module not found',
+                error: err
+            });
+        })
+};
+
+exports.deleteModule = (req, res) => {
+    Module.remove({ _id: req.params.id })
+        .then(module => {
+            return res.status(204).json(module);
+        })
+        .catch(err => {
+            return res.status(404).json({
+                message: 'module not found',
+                error: err
+            });
+        });
 };
