@@ -6,6 +6,10 @@ const ModuleSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    code: {
+    	type: String,
+    	require: false
+    },
     userId: {
     	type: String,
     	require: false

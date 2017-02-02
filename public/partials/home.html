@@ -1,10 +1,11 @@
+<navbar-directive></navbar-directive>
 <h3>
-        Welcome {{loggedInUser}} 
+        Welcome Name: {{loggedInUser.username}}  ID: {{loggedInUser._id}} 
       </h3>
 <div class="container" id="container" align="middle">
     <div class="row">
     </div>
-    <div class="panel panel-primary">
+    <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">
             Modules
@@ -21,7 +22,7 @@
                             Module Name
                         </td>
                         <td>
-                            Thought By:
+                            Module Code
                         </td>
                     </tr>
                     <tr ng-repeat="module in modules">
@@ -32,10 +33,7 @@
                             {{module.name}}
                         </td>
                         <td>
-                            {{module.userId}}
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-success">View</button>
+                            {{module.code}}
                         </td>
                     </tr>
                 </tbody>

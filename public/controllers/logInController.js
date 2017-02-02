@@ -1,8 +1,9 @@
 var moodleApp = angular.module('moodleApp');
 
-//the controller for the homepage which has only logging in.
 moodleApp.controller('logInController',
-    function($scope, $rootScope, $location, userService, loggedInUserService) {
+    function($scope, $rootScope, $location, userService) {
+         $rootScope.loggedInUser = null;
+         $rootScope.showNavbar =  false;
 
         $scope.logIn = function() {
             let username = $scope.username
@@ -12,7 +13,8 @@ moodleApp.controller('logInController',
                 let users = res.data;
                 users.forEach(function(user) {
                     if (user.username === username && user.password === password) {
-                        loggedInUserService.username = user.username;
+                        $rootScope.loggedInUser = user;
+                        $rootScope.showNavbar = true;
                         $location.path('/home');
                     } else {
                         alert("Wrong credentials");
