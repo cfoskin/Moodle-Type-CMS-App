@@ -1,30 +1,31 @@
 <navbar-directive></navbar-directive>
 <h3>
-        Welcome Name: {{loggedInUser.username}}  ID: {{loggedInUser._id}} 
-      </h3>
+Current Modules List
+</h3>
 <div class="container" id="container" align="middle">
     <div class="row">
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">
-            Modules
+            <b>Modules</b>
           </h3>
         </div>
         <div class="panel-body">
             <table class="table">
+                <thead> <h3>
+                        <td>
+                            <b>Module ID</b>
+                        </td>
+                        <td>
+                            <b>Module Name</b>
+                        </td>
+                        <td>
+                           <b> Module Code </b>
+                        </td>
+                        </h3>
+                </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            Module ID
-                        </td>
-                        <td>
-                            Module Name
-                        </td>
-                        <td>
-                            Module Code
-                        </td>
-                    </tr>
                     <tr ng-repeat="module in modules">
                         <td>
                             {{module._id}}
