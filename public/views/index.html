@@ -7,11 +7,27 @@
 
 <head>
     <base href="/">
+    <link rel="shortcut icon" href="">
     <title>
         Moodle-Type Application
     </title>
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/1.1.0/toaster.min.css" rel="stylesheet" />
+    <style>
+    .drop-box {
+        background: #F8F8F8;
+        border: 5px dashed #DDD;
+        width: 200px;
+        height: 65px;
+        text-align: center;
+        padding-top: 25px;
+        margin: 10px;
+    }
+    
+    .dragover {
+        border: 5px dashed blue;
+    }
+    </style>
 </head>
 <h3 class="text-center">
 Moodle-Type Application</h3>
@@ -30,12 +46,16 @@ Moodle-Type Application</h3>
         <script src="../support/angular-route.js"></script>
         <script src="../support/angular-animate.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/1.1.0/toaster.min.js"></script>
+        <script src="../support/ng-file-upload-shim.js"></script>
+        <!-- for no html5 browsers support -->
+        <script src="../support/ng-file-upload.js"></script>
         <script src="../app.js"></script>
         <script src="../controllers/logInController.js"></script>
         <script src="../controllers/homeController.js"></script>
+        <script src="../controllers/navbarController.js"></script>
+        <script src="../controllers/createModuleController.js"></script>
         <script src="../services/userService.js"></script>
         <script src="../services/moduleService.js"></script>
-        <script src="../services/loggedInUserService.js"></script>
 </body>
 
 </html>

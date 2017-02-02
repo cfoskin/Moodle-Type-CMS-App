@@ -1,14 +1,16 @@
 angular.module('moodleApp')
   .service('userService', function($http) {
-		var users  = {};
-
-    users.getOne = function(id) {
-      return $http.get('/api/users/' + id);
-    };
-
-		users.getAll = function(id) {
-      return $http.get('/api/users/');
-    };
+  var api = {
     
-    return users;
-  });
+    getAll : function(id) {
+      return $http.get('/api/users/');
+    },
+    getOne : function(id) {
+      return $http.get('/api/users/' + id);
+    },
+    createUser: function(user) {
+        return $http.post('/api/users', user);
+      }
+  };
+  return api;
+});

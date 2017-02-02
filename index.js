@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 mongoose.Promise = global.Promise;
 const config = require('./config/config');
-const MongoClient = require('mongodb').MongoClient;
+const multipart = require('connect-multiparty');
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
@@ -17,6 +17,9 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+app.use(multipart({
+    uploadDir: config.tmp
+}));
 
 app.use('/', express.static(path.join(__dirname, './public')));
 app.get('/', (req, res) => {

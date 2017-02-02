@@ -1,5 +1,5 @@
 'use strict';
-var moodleApp = angular.module('moodleApp', ['ngRoute', 'toaster', 'ngAnimate']);
+var moodleApp = angular.module('moodleApp', ['ngRoute', 'toaster', 'ngAnimate', 'ngFileUpload']);
 //routes
 moodleApp.config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
@@ -12,13 +12,20 @@ moodleApp.config(['$routeProvider', '$locationProvider',
                 templateUrl: '/partials/home.html',
                 controller: 'homeController'
             })
+            .when('/createModule', {
+                templateUrl: '/partials/createModule.html',
+                controller: 'createModuleController'
+            })
             .otherwise({
                 redirectTo: '/'
             });
-
-        $locationProvider.html5Mode({
-            enabled: true,
-            requireBase: false
-        });
     }
 ]);
+
+moodleApp.directive('navbarDirective', function() {
+  return {
+    restrict: 'AE',
+    templateUrl: '/partials/navbar.html',
+    controller: 'navbarController'
+  }
+});
