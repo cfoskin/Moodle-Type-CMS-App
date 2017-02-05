@@ -1,6 +1,7 @@
 const express = require('express');
 const UserApi = require('./app/api/user');
 const ModuleApi = require('./app/api/module');
+const FileApi = require('./app/api/file');
 
 module.exports = (function() {
     'use strict';
@@ -18,5 +19,6 @@ module.exports = (function() {
     api.put('/modules/:id', ModuleApi.updateModule);
     api.delete('/modules/:id', ModuleApi.deleteModule);
 
+    api.post('/upload', FileApi.upload);
     return api;
 })();
