@@ -20,6 +20,7 @@
     "angular": "^1.6.1",
     "angular-animate": "^1.6.1",
     "angularjs-toaster": "^2.1.0",
+    "aws-sdk": "^2.9.0",
     "body-parser": "1.15.2",
     "connect-multiparty": "^2.0.0",
     "express": "4.14.0",

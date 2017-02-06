@@ -24,29 +24,18 @@
                         </label>
                         <input type="text" class="form-control" type="text" name="code" placeholder="e.g: WD028" ng-model="newModule.code" required>
                         <hr>
-                        <!-- <button type="submit" class="btn pull-right btn-primary">
-                            Create
-                        </button> -->
                     </div>
                 </div>
                 <label>
                     Add Files
                 </label>
                 <div ngf-drop ngf-select ng-model="file" class="drop-box" ngf-drag-over-class="'dragover'" ngf-multiple="false" ngf-allow-dir="true" accept="image/*,application/pdf" ngf-pattern="'image/*,application/pdf'">Drop pdfs or images to upload </div>
-                <p style="font:smaller">{{file.name}} {{file.$error}} {{file.$errorParam}}</p>
-                <pre ng-show="file">{{log}}</pre>
+                <p style="font:smaller"> {{log}}</p>
             </form>
             <button type="submit" class="btn pull-right btn-primary">
                 Create
             </button>
         </div>
-        <!--    <div class="panel panel-default" style="width: 60%" align="middle">
-            <div class="panel-body">
-                    <div ngf-drop ngf-select ng-model="file" class="drop-box" ngf-drag-over-class="'dragover'" ngf-multiple="false" ngf-allow-dir="true" accept="image/*,application/pdf" ngf-pattern="'image/*,application/pdf'">Drop pdfs or images to upload </div>
-                        <p style="font:smaller">{{file.name}} {{file.$error}} {{file.$errorParam}}</p>
-                    <pre ng-show="file">{{log}}</pre>
-            </div>
-        </div> -->
     </div>
 </div>
 </div>
