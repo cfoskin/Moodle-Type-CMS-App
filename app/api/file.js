@@ -1,4 +1,5 @@
 'use strict';
+const File = require('../models/file');
 const AWS = require('aws-sdk');
 const path = require('path');
 AWS.config.loadFromPath(path.join(__dirname, '../../config/awsConfig.json'));
@@ -32,6 +33,18 @@ exports.uploadToS3 = (req, res) => {
                     });
                 }
                 if (data) {
+                    console.log(data.Location);
+                    const aFile = new File({url: data.Location});
+                    aFile.save()
+                        .then(newFile => {
+                            return res.status(201).json(newFile);
+                        })
+                        .catch(err => {
+                            return res.status(500).json({
+                                message: 'error storing file',
+                                error: err
+                            });
+                        })
                     return res.status(201).json({
                         message: 'Upload Success',
                         fileUrl: data.Location
