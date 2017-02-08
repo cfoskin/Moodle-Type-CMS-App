@@ -7,13 +7,21 @@ const ModuleSchema = mongoose.Schema({
         required: true
     },
     code: {
-    	type: String,
-    	require: false
+        type: String,
+        require: false
     },
     userId: {
-    	type: String,
-    	require: false
-    }
+        type: String,
+        require: false
+    },
+    files: [{
+        name: String,
+        url: String,
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'file'
+        }
+    }]
 });
 
 const Module = mongoose.model('module', ModuleSchema);
