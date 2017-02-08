@@ -1,5 +1,5 @@
 'use strict';
-var moodleApp = angular.module('moodleApp', ['ngRoute', 'toaster', 'ngAnimate', 'ngFileUpload']);
+var moodleApp = angular.module('moodleApp', ['ngRoute', 'toaster', 'ngAnimate', 'ngFileUpload', 'ui.sortable']);
 //routes
 moodleApp.config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
