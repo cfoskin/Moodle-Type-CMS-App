@@ -12,7 +12,7 @@
           </h3>
         </div>
         <div class="panel-body">
-            <form class="form-create-module" novalidate ng-submit="createModule()">
+            <form class="form-create-module" novalidate name="myForm">
                 <div class="form-group">
                     <label>
                         Module Name
@@ -23,18 +23,21 @@
                             Module Code
                         </label>
                         <input type="text" class="form-control" type="text" name="code" placeholder="e.g: WD028" ng-model="newModule.code" required>
-                        <hr>
                     </div>
+                    <label>
+                           Add a File
+                        </label>
+                    <input type="file" ngf-select ng-model="file" name="file" accept="image/*, application/pdf" ngf-model-invalid="errorFile">
+                    <button ng-click="file=null" ng-show="file">Remove</button>
+                    <br>
+                    <button class="btn pull-right btn-primary" ng-click="createModule($file)">Submit</button>
+                    <span class="progress" ng-show="file.progress >= 0">
+                     <div style="width:{{file.progress}}%"  ng-bind="file.progress + '%'"></div>
+                      </span>
+                    <span ng-show="file.result">Upload Successful</span>
+                    <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
                 </div>
-                <label>
-                    Add Files
-                </label>
-                <div ngf-drop ngf-select ng-model="file" class="drop-box" ngf-drag-over-class="'dragover'" ngf-multiple="false" ngf-allow-dir="true" accept="image/*,application/pdf" ngf-pattern="'image/*,application/pdf'">Drop pdfs or images to upload </div>
-                <p style="font:smaller"> {{log}}</p>
             </form>
-            <button type="submit" class="btn pull-right btn-primary">
-                Create
-            </button>
         </div>
     </div>
 </div>
