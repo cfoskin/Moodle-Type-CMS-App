@@ -2,29 +2,29 @@
 <img src="/images/moodle.png" alt="moodle" style="width:700px;height:100px;">
 <hr>
 <div class="container" id="container" align="middle">
- <h2>
+    <h2>
 Current Modules List
 </h2>
     <div class="panel panel-default">
-        </div>
-            <table class="table" style="width:auto;">
-                <thead>
-                    <h1>
-                        <td>
-                            <legend><b>Module Name</b></legend>
-                        </td>
-                        <td>
-                          <legend><b>Module Code</b></legend>
-                        </td>
-                        <td>
-                           <legend><b>Module Files</b></legend>
-                        </td>
-                        </h1>
-                </thead>
+    </div>
+    <table class="table" style="width:auto;">
+        <thead>
+            <tr>
+                <th>
+                    <legend><b>Module Name</b></legend>
+                </th>
+                <th>
+                    <legend><b>Module Code</b></legend>
+                </th>
+                <th>
+                    <legend><b>Module Files</b></legend>
+                </th>
+            </tr>
+        </thead>
         <tbody ui-sortable ng-model="modules">
-        <tr ng-repeat="module in modules" class="t-row">
-                        <td>
-                            <h3>{{module.name}}</h2>
+            <tr ng-repeat="module in modules" class="t-row">
+                <td>
+                    <h3>{{module.name}}</h2>
                         </td>
                         <td>
                            <h3> {{module.code}}</h2>
