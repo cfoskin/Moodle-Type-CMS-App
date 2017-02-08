@@ -33,24 +33,31 @@ exports.uploadToS3 = (req, res) => {
                     });
                 }
                 if (data) {
-                    console.log(data.Location);
-                    const aFile = new File({url: data.Location});
-                    aFile.save()
-                        .then(newFile => {
-                            return res.status(201).json(newFile);
-                        })
-                        .catch(err => {
-                            return res.status(500).json({
-                                message: 'error storing file',
-                                error: err
-                            });
-                        })
                     return res.status(201).json({
                         message: 'Upload Success',
-                        fileUrl: data.Location
+                        fileUrl: data.Location,
+                        fileName: data.key
                     });
                 }
             });
         }
     });
 };
+
+exports.createFile = (req, res) => {
+    let file = { name: req.body.fileName, url: req.body.fileUrl };
+    const aFile = new File(file);
+    aFile.save()
+        .then(newFile => {
+            return res.status(201).json({
+                message: 'new file saved in db',
+                file: newFile
+            });
+        })
+        .catch(err => {
+            return res.status(500).json({
+                message: 'error storing file',
+                error: err
+            });
+        })
+}

@@ -19,6 +19,7 @@ module.exports = (function() {
     api.delete('/modules/:id', ModuleApi.deleteModule);
 
     api.post('/upload', FileApi.uploadToS3);
+    api.post('/files', FileApi.createFile);
 
     return api;
 })();

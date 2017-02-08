@@ -3,7 +3,6 @@ const Module = require('../models/module');
 
 exports.addModule = (req, res) => {
     const module = new Module(req.body);
-    console.log(module);
     module.save()
         .then(newModule => {
             return res.status(201).json(newModule);

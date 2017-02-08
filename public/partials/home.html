@@ -13,7 +13,8 @@ Current Modules List
         </div>
         <div class="panel-body">
             <table class="table">
-                <thead> <h3>
+                <thead>
+                    <h3>
                         <td>
                             <b>Module ID</b>
                         </td>
@@ -22,6 +23,9 @@ Current Modules List
                         </td>
                         <td>
                            <b> Module Code </b>
+                        </td>
+                        <td>
+                           <b> Module Files </b>
                         </td>
                         </h3>
                 </thead>
@@ -35,6 +39,9 @@ Current Modules List
                         </td>
                         <td>
                             {{module.code}}
+                        </td>
+                        <td>
+                            <a href="{{module.files[0].url}}" target="_blank"> {{module.files[0].name}}</a>
                         </td>
                     </tr>
                 </tbody>
