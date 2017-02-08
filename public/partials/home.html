@@ -1,44 +1,34 @@
 <navbar-directive></navbar-directive>
-<h3>
+<h2>
 Current Modules List
-</h3>
+</h2>
 <div class="container" id="container" align="middle">
     <div class="row">
     </div>
     <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">
-            <b>Modules</b>
-          </h3>
+       
         </div>
-        <div class="panel-body">
-            <table class="table">
+            <table class="table" style="width:auto;">
                 <thead>
-                    <h3>
+                    <h1>
                         <td>
-                            <b>Module ID</b>
+                            <legend><b>Module Name</b></legend>
                         </td>
                         <td>
-                            <b>Module Name</b>
+                          <legend><b>Module Code</b></legend>
                         </td>
                         <td>
-                           <b> Module Code </b>
+                           <legend><b>Module Files</b></legend>
                         </td>
-                        <td>
-                           <b> Module Files </b>
-                        </td>
-                        </h3>
+                        </h1>
                 </thead>
-                <tbody>
-                    <tr ng-repeat="module in modules">
+        <tbody ui-sortable ng-model="modules">
+        <tr ng-repeat="module in modules" class="t-row">
                         <td>
-                            {{module._id}}
+                            <h3>{{module.name}}</h2>
                         </td>
                         <td>
-                            {{module.name}}
-                        </td>
-                        <td>
-                            {{module.code}}
+                           <h3> {{module.code}}</h2>
                         </td>
                         <td>
                             <a href="{{module.files[0].url}}" target="_blank"> {{module.files[0].name}}</a>
@@ -46,7 +36,6 @@ Current Modules List
                     </tr>
                 </tbody>
             </table>
-        </div>
     </div>
 </div>
 </div>

@@ -19,6 +19,7 @@
   "dependencies": {
     "angular": "^1.6.1",
     "angular-animate": "^1.6.1",
+    "angular-ui-sortable": "^0.16.1",
     "angularjs-toaster": "^2.1.0",
     "aws-sdk": "^2.9.0",
     "body-parser": "1.15.2",
