@@ -1,40 +1,64 @@
 <navbar-directive></navbar-directive>
 <img src="/images/moodle.png" alt="moodle" style="width:700px;height:100px;">
-<hr>
-<div class="container" id="container" align="middle">
-    <h2>
+<h2>
 Current Modules List
 </h2>
-    <div class="panel panel-default">
+<hr>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="panel panel-default">
+                <table class="table" style="width:auto;">
+                    <thead>
+                        <tr>
+                            <th>
+                                <legend><b>Module Name</b></legend>
+                            </th>
+                            <th>
+                                <legend><b>Module Code</b></legend>
+                            </th>
+                            <th>
+                                <legend><b>Module Files</b></legend>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody ui-sortable ng-model="modules">
+                        <tr ng-repeat="module in modules" class="t-row">
+                            <td>
+                                <h3>{{module.name}}</h3>
+                            </td>
+                            <td>
+                                <h3> {{module.code}}</h3>
+                            </td>
+                            <td>
+                                <a href="{{module.files[0].url}}" target="_blank"> {{module.files[0].name}}</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table" style="width:auto;">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <legend><b>All Available Files</b></legend>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody ui-sortable ng-model="files">
+                            <tr ng-repeat="file in files" class="t-row">
+                                    <td>
+                                        <a href="{{file.url}}" target="_blank"> {{file.name}}</a>
+                                    </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
-    <table class="table" style="width:auto;">
-        <thead>
-            <tr>
-                <th>
-                    <legend><b>Module Name</b></legend>
-                </th>
-                <th>
-                    <legend><b>Module Code</b></legend>
-                </th>
-                <th>
-                    <legend><b>Module Files</b></legend>
-                </th>
-            </tr>
-        </thead>
-        <tbody ui-sortable ng-model="modules">
-            <tr ng-repeat="module in modules" class="t-row">
-                <td>
-                    <h3>{{module.name}}</h2>
-                        </td>
-                        <td>
-                           <h3> {{module.code}}</h2>
-                        </td>
-                        <td>
-                            <a href="{{module.files[0].url}}" target="_blank"> {{module.files[0].name}}</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-    </div>
-</div>
 </div>

@@ -61,3 +61,10 @@ exports.createFile = (req, res) => {
             });
         })
 }
+
+exports.getFiles = (req, res) => {
+    File.find({}).exec()
+        .then(files => {
+            return res.status(200).json(files);
+        })
+};
