@@ -7,8 +7,8 @@ moodleApp.controller('homeController',
         fileService.getAll().then(function(res) {
             let files = res.data;
             $scope.files = files;
-            console.log($scope.files);
-        })
+        });
+        
         moduleService.getAll().then(function(res) {
             let modules = res.data;
             $scope.modules = modules;
