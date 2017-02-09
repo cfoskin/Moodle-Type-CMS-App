@@ -20,6 +20,7 @@ module.exports = (function() {
 
     api.post('/upload', FileApi.uploadToS3);
     api.post('/files', FileApi.createFile);
+    api.get('/files', FileApi.getFiles);
 
     return api;
 })();
