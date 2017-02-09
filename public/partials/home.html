@@ -57,11 +57,11 @@ Current Modules List
         <div class="col-md-3" ng-show="currentModule">
             <!-- ========== Usage Drop ========== -->
             <ul id="my-basket" class="list-group" ad-drop="true" ad-drop-over="onDragOver($data, $dragElement, $dropElement, $event);" ad-drop-leave="onDragLeave($data, $dragElement, $dropElement, $event)" ad-drop-end="onDrop($data, $dragElement, $dropElement, $event);">
-                <li class="list-group-item disabled">{{currentModule.name}} </li>
+                <li class="list-group-item disabled">{{currentModule.name}} current files </li>
                 <li class="list-group-item" ad-drag="true" ng-repeat="file in models.moduleFiles">
                     <span>
-            <span class="glyphicon glyphicon-thumbs-up"></span> {{ file.name }}
-                    </span>
+            <span class="glyphicon glyphicon-thumbs-up"></span> {{ file.name }}  <button class="btn btn-xs pull-right btn-danger" ng-click="deleteFile(file)">delete</button>
+
                 </li>
                 <li class="list-group-item" ng-hide="models.moduleFiles.length">
                     <span> Drop here</span>

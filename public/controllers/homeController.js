@@ -34,6 +34,16 @@ moodleApp.controller('homeController',
             }
         };
 
+        $scope.deleteFile =  function(file){
+            var index =  $scope.currentModule.files.indexOf(file);
+            if (index > -1) {
+                 $scope.currentModule.files.splice(index, 1);
+                moduleService.updateModule($scope.currentModule).then(function(res) {
+                        $location.path('/home');
+                    });
+            }
+        }
+
         $scope.onDragStart = function() {
 
         };
