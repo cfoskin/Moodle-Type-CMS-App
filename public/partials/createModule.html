@@ -1,4 +1,6 @@
 <navbar-directive></navbar-directive>
+<img src="/images/moodle.png" alt="moodle" style="width:600px;height:100px;">
+
 <h3>
         Create a New Module
       </h3>
@@ -30,7 +32,7 @@
                     <input type="file" ngf-select ng-model="file" name="file" accept="image/*, application/pdf" ngf-model-invalid="errorFile">
                     <button ng-click="file=null" ng-show="file">Remove</button>
                     <br>
-                    <button class="btn pull-right btn-primary" ng-click="createModule($file)">Submit</button>
+                    <button class="btn pull-right btn-warning" ng-click="createModule($file)">Submit</button>
                     <span class="progress" ng-show="file.progress >= 0">
                      <div style="width:{{file.progress}}%"  ng-bind="file.progress + '%'"></div>
                       </span>

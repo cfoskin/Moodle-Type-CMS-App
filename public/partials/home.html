@@ -10,17 +10,7 @@ Current Modules List
             <div class="panel panel-default">
                 <table class="table" style="width:auto;">
                     <thead>
-                        <tr>
-                            <th>
-                                <legend><b>Module Name</b></legend>
-                            </th>
-                            <th>
-                                <legend><b>Module Code</b></legend>
-                            </th>
-                            <th>
-                                <legend><b>Module Description</b></legend>
-                            </th>
-                        </tr>
+                        <br>
                     </thead>
                     <tbody ui-sortable ng-model="modules">
                         <tr ng-repeat="module in modules" class="t-row">
@@ -28,11 +18,15 @@ Current Modules List
                                 <h3>{{module.name}}</h3></a>
                             </td>
                             <td>
-                                <h3> {{module.code}}</h3>
+                                {{module.code}}
                             </td>
                             <td>
                                 <ul>
-                                    <li ng-repeat="file in module.files"><a href="{{file.url}}" target="_blank"> {{file.name}}</a></li>
+                                    <li ng-repeat="file in module.files">
+                                        {{file.name}}
+                                        <!--                                     <a href="{{file.url}}" target="_blank"> {{file.name}}</a>
+
+ --></li>
                                 </ul>
                             </td>
                             <td>
@@ -40,6 +34,7 @@ Current Modules List
                             </td>
                         </tr>
                     </tbody>
+                    <br>
                 </table>
             </div>
         </div>
@@ -57,11 +52,11 @@ Current Modules List
         <div class="col-md-3" ng-show="currentModule">
             <!-- ========== Usage Drop ========== -->
             <ul id="my-basket" class="list-group" ad-drop="true" ad-drop-over="onDragOver($data, $dragElement, $dropElement, $event);" ad-drop-leave="onDragLeave($data, $dragElement, $dropElement, $event)" ad-drop-end="onDrop($data, $dragElement, $dropElement, $event);">
-                <li class="list-group-item disabled">{{currentModule.name}} current files </li>
+                <li class="list-group-item disabled">{{currentModule.name}} files </li>
                 <li class="list-group-item" ad-drag="true" ng-repeat="file in models.moduleFiles">
                     <span>
-            <span class="glyphicon glyphicon-thumbs-up"></span> {{ file.name }}  <button class="btn btn-xs pull-right btn-danger" ng-click="deleteFile(file)">delete</button>
-
+            <span class="glyphicon glyphicon-thumbs-up"></span> {{ file.name }}
+                    <button class="btn btn-xs pull-right btn-danger" ng-click="deleteFile(file)">delete</button>
                 </li>
                 <li class="list-group-item" ng-hide="models.moduleFiles.length">
                     <span> Drop here</span>
@@ -71,3 +66,6 @@ Current Modules List
     </div>
 </div>
 </div>
+<br>
+<hr>
+<hr>
