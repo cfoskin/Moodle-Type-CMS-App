@@ -10,6 +10,9 @@ angular.module('moodleApp')
     },
     postModule : function(module) {
         return $http.post('/api/modules', module);
+      },
+      updateModule : function(module) {
+        return $http.put('/api/modules/' + module._id, module);
       }
   };
   return api;
