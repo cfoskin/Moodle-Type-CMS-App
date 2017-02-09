@@ -5,8 +5,8 @@ Current Modules List
 </h2>
 <hr>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-8">
+    <div class="rows">
+        <div class="col-md-8">
             <div class="panel panel-default">
                 <table class="table" style="width:auto;">
                     <thead>
@@ -18,47 +18,56 @@ Current Modules List
                                 <legend><b>Module Code</b></legend>
                             </th>
                             <th>
-                                <legend><b>Module Files</b></legend>
+                                <legend><b>Module Description</b></legend>
                             </th>
                         </tr>
                     </thead>
                     <tbody ui-sortable ng-model="modules">
                         <tr ng-repeat="module in modules" class="t-row">
                             <td>
-                                <h3>{{module.name}}</h3>
+                                <h3>{{module.name}}</h3></a>
                             </td>
                             <td>
                                 <h3> {{module.code}}</h3>
                             </td>
                             <td>
-                                <a href="{{module.files[0].url}}" target="_blank"> {{module.files[0].name}}</a>
+                                <ul>
+                                    <li ng-repeat="file in module.files"><a href="{{file.url}}" target="_blank"> {{file.name}}</a></li>
+                                </ul>
+                            </td>
+                            <td>
+                                <button class="btn btn-xs pull-right btn-warning" ng-click="editModule(module)">Edit</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="col-sm-4">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <table class="table" style="width:auto;">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <legend><b>All Available Files</b></legend>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody ui-sortable ng-model="files">
-                            <tr ng-repeat="file in files" class="t-row">
-                                    <td>
-                                        <a href="{{file.url}}" target="_blank"> {{file.name}}</a>
-                                    </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <div class="col-md-3" ng-show="currentModule">
+            <ul id="car-list" class="list-group">
+                <li class="list-group-item disabled">List of available files</li>
+                <!-- ========== Usage Drag ========== -->
+                <li class="list-group-item" ad-drag="true" ad-drag-data="file" ad-drag-begin="onDragStart($data, $dragElement, $event);" ad-drag-end="onDragEnd($data, $dragElement, $lastDropElement, $event);" ng-repeat="file in models.files">
+                    <span>
+            <span class="glyphicon glyphicon-th"></span> {{file.name}}
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-3" ng-show="currentModule">
+            <!-- ========== Usage Drop ========== -->
+            <ul id="my-basket" class="list-group" ad-drop="true" ad-drop-over="onDragOver($data, $dragElement, $dropElement, $event);" ad-drop-leave="onDragLeave($data, $dragElement, $dropElement, $event)" ad-drop-end="onDrop($data, $dragElement, $dropElement, $event);">
+                <li class="list-group-item disabled">{{currentModule.name}} </li>
+                <li class="list-group-item" ad-drag="true" ng-repeat="file in models.moduleFiles">
+                    <span>
+            <span class="glyphicon glyphicon-thumbs-up"></span> {{ file.name }}
+                    </span>
+                </li>
+                <li class="list-group-item" ng-hide="models.moduleFiles.length">
+                    <span> Drop here</span>
+                </li>
+            </ul>
         </div>
     </div>
+</div>
 </div>
