@@ -21,7 +21,8 @@ const ModuleSchema = mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: 'file'
         }
-    }]
+    }],
+    required: false
 });
 
 const Module = mongoose.model('module', ModuleSchema);

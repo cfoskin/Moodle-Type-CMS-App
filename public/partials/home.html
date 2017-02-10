@@ -3,57 +3,39 @@
 <hr>
 <div class="container-fluid">
     <div class="rows">
-        <div class="col-md-8">
+     <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title text-center">
-Current Modules List</h3>
+                    Current Modules List</h3>
                 </div>
-                <table class="table" style="width:auto;">
-                    <thead>
-                        <br>
-                    </thead>
-                    <tbody ui-sortable ng-model="modules">
-                        <tr ng-repeat="module in modules" class="t-row">
+                <div class="panel-body" style=" max-height:350px;">
+                    <table class="table" style="width:auto;">
+                        <thead>
+                            <br>
+                        </thead>
+                        <tbody ui-sortable ng-model="modules">
+                           <tr ng-repeat="module in modules" class="t-row">
                             <td>
                                 <h3>{{module.name}}</h3></a>
-                            </td>
-                           <!--  <td>
-                                <br> {{module.code}}
-                            </td> -->
-                            <td>
-                                <!-- <ul>
-                                    <li ng-repeat="file in module.files">
-                                        {{file.name}}
-                                                                        <a href="{{file.url}}" target="_blank"> {{file.name}}</a>
-
- </li>
-                                </ul> -->
                             </td>
                             <td>
                                 <br>
                                 <button class="btn btn-xs pull-right btn-warning" btn-inverse ng-click="editModule(module)">manage module files</button>
                             </td>
                         </tr>
-                    </tbody>
-                    <br>
-                </table>
+                        </tbody>
+                        <br>
+                    </table>
+                </div>
             </div>
         </div>
-        <!--  <div class="col-md-3" ng-show="currentModule" >
-            <ul id="car-list" class="list-group">
-                <li class="list-group-item disabled">List of available files</li>
-                <li class="list-group-item" ad-drag="true" ad-drag-data="file" ad-drag-begin="onDragStart($data, $dragElement, $event);" ad-drag-end="onDragEnd($data, $dragElement, $lastDropElement, $event);" ng-repeat="file in models.files">
-                    <span>
-            <span class="glyphicon glyphicon-th"></span> {{file.name}}
-                    </span>
-                </li>
-            </ul>
-        </div> -->
-        <div class="col-md-3" ng-show="currentModule">
+
+        <div class="col-md-3" ng-show="currentModule" style=" max-height:350px;">
+        <table class="table" style="width:auto;">
+         <tbody ui-sortable ng-model="files">
             <ul id="car-list" class="list-group second">
-                <li class="list-group-item disabled">List of available files</li> 
- 
+                <li class="list-group-item disabled">List of available files</li>
                 <!-- ========== Usage Drag ========== -->
                 <li class="list-group-item" ad-drag="true" ad-drag-data="file" ad-drag-begin="onDragStart($data, $dragElement, $event);" ad-drag-end="onDragEnd($data, $dragElement, $lastDropElement, $event);" ng-repeat="file in models.files">
                     <span>
@@ -61,6 +43,8 @@ Current Modules List</h3>
                     </span>
                 </li>
             </ul>
+            </tbody>
+            </table>
         </div>
         <div class="col-md-3" ng-show="currentModule">
             <!-- ========== Usage Drop ========== -->

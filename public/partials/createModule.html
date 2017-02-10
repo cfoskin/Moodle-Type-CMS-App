@@ -7,30 +7,35 @@
             <h3 class="panel-title text-center">
 Create a New Module</h3>
         </div>
-        <div class="panel-body">
+        <div class="panel-body" style=" min-height:300px;max-height:350px;">
             <form class="form-create-module" novalidate name="myForm">
+            <br>
                 <div class="form-group">
                     <label>
                         Module Name
                     </label>
                     <input type="text" class="form-control" type="text" placeholder="e.g: Enterprise Development" ng-model="newModule.name">
+                                        <br>
+
                     <div class="form-group">
                         <label>
                             Module Code
                         </label>
                         <input type="text" class="form-control" type="text" name="code" placeholder="e.g: WD028" ng-model="newModule.code" required>
                     </div>
-                    <label>
-                        Add a File
-                    </label>
-                    <input type="file" ngf-select ng-model="file" name="file" accept="image/*, application/pdf" ngf-model-invalid="errorFile">
-                    <button ng-click="file=null" ng-show="file">Remove</button>
+                    <hr>
+                    <br>
+                      <label for="file-upload" class="custom-file-upload">
+                                <span class="glyphicon glyphicon-plus"></span> Choose a file
+                            </label>
+                    <input type="file" id="file-upload" ngf-select ng-model="file" name="file" accept="image/*, application/pdf" ngf-model-invalid="errorFile">
+                    <button class="btn btn-xs btn-danger" ng-click="file=null" ng-show="file">Remove</button>
                     <br>
                     <button class="btn pull-right btn-warning" ng-click="createModule($file)">Submit</button>
                     <span class="progress" ng-show="file.progress >= 0">
                      <div style="width:{{file.progress}}%"  ng-bind="file.progress + '%'"></div>
                       </span>
-                    <span ng-show="file.result">Upload Successful</span>
+                    <span ng-show="file.result">{{file.name}}: Upload Successful</span>
                     <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
                 </div>
             </form>
