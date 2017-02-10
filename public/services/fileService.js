@@ -13,6 +13,9 @@ angular.module('moodleApp')
             deleteFile: function(id) {
                 return $http.delete('/api/files/' + id);
             },
+            updateFile: function(file) {
+                return $http.put('/api/files/'+ file._id, file);
+            },
         };
         return api;
     });

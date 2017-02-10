@@ -38,10 +38,19 @@ moodleApp.controller('homeController',
             var index = $scope.currentModule.files.indexOf(file);
             if (index > -1) {
                 $scope.currentModule.files.splice(index, 1);
-                moduleService.updateModule($scope.currentModule).then(function(res) {
+            }
+            if (file.modules) {
+                var moduleIndex = file.modules.findIndex(item => item.id === $scope.currentModule._id);
+                if (moduleIndex > -1) {
+                    file.modules.splice(moduleIndex, 1);
+                }
+            }
+            moduleService.updateModule($scope.currentModule).then(function(res) {
+
+                fileService.updateFile(file).then(function(res) {
                     $location.path('/home');
                 });
-            }
+            });
         }
 
         $scope.onDragStart = function() {
@@ -64,15 +73,36 @@ moodleApp.controller('homeController',
             if (data && $scope.currentDropElement) {
                 if (!$scope.currentModule.files.includes(data)) {
                     $scope.currentModule.files.push(data);
-                    moduleService.updateModule($scope.currentModule).then(function(res) {
-                        $location.path('/home');
+                    let tempModule = {};
+
+                    $scope.currentModule.files.forEach(function(file) {
+                        tempModule.name = $scope.currentModule.name;
+                        tempModule.id = $scope.currentModule._id;
+                        if (file.modules.length < 1) {
+                            file.modules = [];
+                        } else {
+                            file.modules = file.modules;
+                        }
+                        // debugger;
+                        // file.modules.forEach(function(module) {
+                        //     if(module != tempModule){
+                        //         file.modules.push(tempModule);
+                        //     }
+                        // })
+
+                        file.modules.push(tempModule);
+                        
+                        tempModule = {};
+
+                        fileService.updateFile(file).then(function(res) {
+                            moduleService.updateModule($scope.currentModule).then(function(res) {
+                                $location.path('/home');
+                            });
+                        });
                     });
+
+
                 }
-
-
-                // /$scope.models.moduleFiles.push(data);
-
-                // $scope.remove($scope.models.files, data);
             }
         };
     });

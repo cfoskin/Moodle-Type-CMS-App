@@ -19,7 +19,7 @@
                         <tbody ui-sortable ng-model="files">
                            <tr ng-repeat="file in files" class="t-row">
                             <td>
-                                <p><b>Name: </b>{{file.name}}</p></a>
+                                <p><b>Name: </b>{{file.name}}</p>
                             </td>
                              <td>
                                  <p> <b>Source: </b><a href="{{file.url}}">{{file.url}}</a></p>
@@ -72,8 +72,18 @@
                     <h3 class="panel-title text-center">
                    Modules where <i><b>{{currentFile.name}}<i></b> is being used in</h3>
                 </div>
-                <div class="panel-body" >
-                   
+                <div class="panel-body" style=" max-height:185px;" >
+                    <table class="table" style="width:auto;">
+                        <tbody >
+                           <tr ng-repeat="module in currentFile.modules" class="t-row">
+                            <td>
+                                <p><b>Name: </b>{{module.name}}</p>
+                            </td>
+                            
+                            </tr>
+                        </tbody>
+                        <br>
+                    </table>
                 </div>
             </div>
         </div>
