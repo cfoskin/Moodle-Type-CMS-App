@@ -25,10 +25,15 @@
                                  <p> <b>Source: </b><a href="{{file.url}}">{{file.url}}</a></p>
                             </td>
                             <td>
-                                <br>
-                                <button class="btn btn-xs pull-right btn-danger" ng-click="deleteFile(file)">delete</button>
+                            <br>
+                            <button class="btn btn-xs pull-right btn-warning" ng-click="viewFileInfo(file)">Info</button>
                             </td>
-                        </tr>
+                            <td>
+                                <br>
+                                <button class="btn btn-xs pull-right btn-danger" ng-click="deleteFile(file)">Delete</button>
+                            </td>
+
+                            </tr>
                         </tbody>
                         <br>
                     </table>
@@ -58,6 +63,17 @@
                             <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" ng-show="currentFile">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">
+                   Modules where {{currentFile.name}} is being used in</h3>
+                </div>
+                <div class="panel-body" >
+                   
                 </div>
             </div>
         </div>
