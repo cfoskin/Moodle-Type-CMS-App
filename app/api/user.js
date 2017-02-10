@@ -38,7 +38,6 @@ exports.getUsers = (req, res) => {
 };
 
 exports.deleteUser = (req, res) => {
-    console.log(req.params)
     User.remove({ _id: req.params.id })
         .then(user => {
             return res.status(204).json({

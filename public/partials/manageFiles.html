@@ -1,0 +1,45 @@
+<navbar-directive></navbar-directive>
+<img src="/images/moodle.png" alt="moodle" style="width:600px;height:100px;">
+<hr>
+<div class="container-fluid">
+    <div class="rows">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">
+                    Current Files List</h3>
+                </div>
+             <div class="panel-body">
+                <table class="table">
+                    <thead>
+                        <br>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="file in files" class="t-row">
+                            <td>
+                                <p>Name: {{file.name}}</p><p> Source: <a href="{{file.url}}">{{file.url}}</a></p>
+                            </td>
+                          
+                        </tr>
+                    </tbody>
+                    <br>
+                </table>
+            </div>
+        </div>
+    </div>
+         <div class="col-md-3" >
+         
+            </ul>
+        </div>
+        <div class="col-md-3">
+           
+        </div>
+        <div class="col-md-3">
+        
+        </div>
+    </div>
+</div>
+</div>
+<br>
+<hr>
+<hr>
