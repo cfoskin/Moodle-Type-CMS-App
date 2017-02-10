@@ -23,3 +23,13 @@ tbody {
     overflow-y: auto;    /* Trigger vertical scroll    */
     overflow-x: hidden;  /* Hide the horizontal scroll */
 }
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}

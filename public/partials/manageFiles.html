@@ -9,36 +9,51 @@
                     <h3 class="panel-title text-center">
                     Current Files List</h3>
                 </div>
-             <div class="panel-body">
-                <table class="table">
-                    <thead>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <br>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="file in files" class="t-row">
+                                <td>
+                                    <p>Name: {{file.name}}</p>
+                                    <p> Source: <a href="{{file.url}}">{{file.url}}</a></p>
+                                </td>
+                            </tr>
+                        </tbody>
                         <br>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="file in files" class="t-row">
-                            <td>
-                                <p>Name: {{file.name}}</p><p> Source: <a href="{{file.url}}">{{file.url}}</a></p>
-                            </td>
-                          
-                        </tr>
-                    </tbody>
-                    <br>
-                </table>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">
+                    Upload New Files</h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-create-module" novalidate name="myForm">
+                        <div class="form-group">
+                            <label for="file-upload" class="custom-file-upload">
+                                <span class="glyphicon glyphicon-plus"></span> Choose a file
+                            </label>
+                            <input type="file" id="file-upload" ngf-select ng-model="file" name="file" accept="image/*, application/pdf" ngf-model-invalid="errorFile">
+                            <button class="btn btn-xs btn-danger" ng-click="file=null" ng-show="file">Remove</button>
+                            <br>
+                            <button class="btn pull-right btn-warning" ng-click="uploadFile($file)">Upload</button>
+                            <span class="progress" ng-show="file.progress >= 0">
+                     <div style="width:{{file.progress}}%"  ng-bind="file.progress + '%'"></div>
+                      </span>
+                            <span ng-show="file.result">{{file.name}}: Upload Successful</span>
+                            <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-         <div class="col-md-3" >
-         
-            </ul>
-        </div>
-        <div class="col-md-3">
-           
-        </div>
-        <div class="col-md-3">
-        
-        </div>
-    </div>
-</div>
 </div>
 <br>
 <hr>
