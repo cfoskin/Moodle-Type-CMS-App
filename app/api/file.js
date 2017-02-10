@@ -81,3 +81,34 @@ exports.deleteFile = (req, res) => {
             });
         });
 };
+
+exports.updateFile = (req, res) => {
+    File.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { 'new': true })
+        .then(file => {
+            if (file != null) {
+                return res.status(200).json(file);
+            }
+        })
+        .catch(err => {
+            return res.status(400).json({
+                message: 'error updating file',
+                error: err
+            });
+        })
+};
+
+exports.getFile = (req, res) => {
+    File.findOne({ _id: req.params.id })
+        .then(file => {
+            if (file != null) {
+                return res.status(200).json(file)
+            }
+        })
+        .catch(err => {
+            return res.status(400).json({
+                message: 'file not found',
+                error: err
+            });
+        })
+};
+

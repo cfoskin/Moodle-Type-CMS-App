@@ -64,15 +64,28 @@ moodleApp.controller('homeController',
             if (data && $scope.currentDropElement) {
                 if (!$scope.currentModule.files.includes(data)) {
                     $scope.currentModule.files.push(data);
-                    moduleService.updateModule($scope.currentModule).then(function(res) {
-                        $location.path('/home');
+                    let tempModule = {};
+
+                    $scope.currentModule.files.forEach(function(file) {
+                        tempModule.name = $scope.currentModule.name;
+                        tempModule.id = $scope.currentModule._id;
+                        if (file.modules.length < 1) {
+                            file.modules = [];
+                        } else {
+                            file.modules = file.modules;
+                        }
+                        file.modules.push(tempModule);
+                        tempModule = {};
+
+                        fileService.updateFile(file).then(function(res) {
+                            moduleService.updateModule($scope.currentModule).then(function(res) {
+                                $location.path('/home');
+                            });
+                        });
                     });
+
+
                 }
-
-
-                // /$scope.models.moduleFiles.push(data);
-
-                // $scope.remove($scope.models.files, data);
             }
         };
     });
