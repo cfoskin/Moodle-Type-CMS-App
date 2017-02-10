@@ -38,7 +38,6 @@ exports.getModules = (req, res) => {
 };
 
 exports.updateModule = (req, res) => {
-    console.log(req.body);
     Module.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { 'new': true })
         .then(module => {
             if (module != null) {

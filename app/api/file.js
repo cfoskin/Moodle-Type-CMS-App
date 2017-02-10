@@ -68,3 +68,16 @@ exports.getFiles = (req, res) => {
             return res.status(200).json(files);
         })
 };
+
+exports.deleteFile = (req, res) => {
+    File.remove({ _id: req.params.id })
+        .then(file => {
+            return res.status(204).json(file);
+        })
+        .catch(err => {
+            return res.status(404).json({
+                message: 'file not found',
+                error: err
+            });
+        });
+};

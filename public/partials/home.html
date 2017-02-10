@@ -1,13 +1,14 @@
 <navbar-directive></navbar-directive>
 <img src="/images/moodle.png" alt="moodle" style="width:600px;height:100px;">
-<h3>
-Current Modules List
-</h3>
 <hr>
 <div class="container-fluid">
     <div class="rows">
         <div class="col-md-8">
             <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">
+Current Modules List</h3>
+                </div>
                 <table class="table" style="width:auto;">
                     <thead>
                         <br>
@@ -17,20 +18,21 @@ Current Modules List
                             <td>
                                 <h3>{{module.name}}</h3></a>
                             </td>
+                           <!--  <td>
+                                <br> {{module.code}}
+                            </td> -->
                             <td>
-                                {{module.code}}
-                            </td>
-                            <td>
-                                <ul>
+                                <!-- <ul>
                                     <li ng-repeat="file in module.files">
                                         {{file.name}}
-                                        <!--                                     <a href="{{file.url}}" target="_blank"> {{file.name}}</a>
+                                                                        <a href="{{file.url}}" target="_blank"> {{file.name}}</a>
 
- --></li>
-                                </ul>
+ </li>
+                                </ul> -->
                             </td>
                             <td>
-                                <button class="btn btn-xs pull-right btn-warning" ng-click="editModule(module)">Update files</button>
+                                <br>
+                                <button class="btn btn-xs pull-right btn-warning" btn-inverse ng-click="editModule(module)">manage module files</button>
                             </td>
                         </tr>
                     </tbody>
@@ -38,9 +40,20 @@ Current Modules List
                 </table>
             </div>
         </div>
-        <div class="col-md-3" ng-show="currentModule">
+        <!--  <div class="col-md-3" ng-show="currentModule" >
             <ul id="car-list" class="list-group">
                 <li class="list-group-item disabled">List of available files</li>
+                <li class="list-group-item" ad-drag="true" ad-drag-data="file" ad-drag-begin="onDragStart($data, $dragElement, $event);" ad-drag-end="onDragEnd($data, $dragElement, $lastDropElement, $event);" ng-repeat="file in models.files">
+                    <span>
+            <span class="glyphicon glyphicon-th"></span> {{file.name}}
+                    </span>
+                </li>
+            </ul>
+        </div> -->
+        <div class="col-md-3" ng-show="currentModule">
+            <ul id="car-list" class="list-group second">
+                <li class="list-group-item disabled">List of available files</li> 
+ 
                 <!-- ========== Usage Drag ========== -->
                 <li class="list-group-item" ad-drag="true" ad-drag-data="file" ad-drag-begin="onDragStart($data, $dragElement, $event);" ad-drag-end="onDragEnd($data, $dragElement, $lastDropElement, $event);" ng-repeat="file in models.files">
                     <span>

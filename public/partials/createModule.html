@@ -1,17 +1,11 @@
 <navbar-directive></navbar-directive>
 <img src="/images/moodle.png" alt="moodle" style="width:600px;height:100px;">
-
-<h3>
-        Create a New Module
-      </h3>
 <div class="container" id="container" align="middle">
-    <div class="row">
-    </div>
+<hr>
     <div class="panel panel-default" style="width: 60%" align="middle">
         <div class="panel-heading">
-            <h3 class="panel-title">
-            Modules
-          </h3>
+            <h3 class="panel-title text-center">
+Create a New Module</h3>
         </div>
         <div class="panel-body">
             <form class="form-create-module" novalidate name="myForm">
@@ -27,8 +21,8 @@
                         <input type="text" class="form-control" type="text" name="code" placeholder="e.g: WD028" ng-model="newModule.code" required>
                     </div>
                     <label>
-                           Add a File
-                        </label>
+                        Add a File
+                    </label>
                     <input type="file" ngf-select ng-model="file" name="file" accept="image/*, application/pdf" ngf-model-invalid="errorFile">
                     <button ng-click="file=null" ng-show="file">Remove</button>
                     <br>
