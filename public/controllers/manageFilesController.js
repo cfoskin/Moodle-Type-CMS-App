@@ -8,6 +8,16 @@ moodleApp.controller('manageFilesController',
             $scope.files = files;
         });
 
+    	 $scope.deleteFile = function(file) {
+            var index = $scope.files.indexOf(file);
+            if (index > -1) {
+                $scope.files.splice(index, 1);
+                fileService.deleteFile(file._id).then(function(res) {
+                    $location.path('/manageFiles');
+                });
+            }
+        }
+
         $scope.uploadFile = function(file) {
             var file = $scope.file;
             file.upload = Upload.upload({

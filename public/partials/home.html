@@ -9,7 +9,7 @@
                     <h3 class="panel-title text-center">
                     Current Modules List</h3>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" style=" max-height:350px;">
                     <table class="table" style="width:auto;">
                         <thead>
                             <br>
@@ -31,17 +31,9 @@
             </div>
         </div>
 
-        <!--  <div class="col-md-3" ng-show="currentModule" >
-            <ul id="car-list" class="list-group">
-                <li class="list-group-item disabled">List of available files</li>
-                <li class="list-group-item" ad-drag="true" ad-drag-data="file" ad-drag-begin="onDragStart($data, $dragElement, $event);" ad-drag-end="onDragEnd($data, $dragElement, $lastDropElement, $event);" ng-repeat="file in models.files">
-                    <span>
-            <span class="glyphicon glyphicon-th"></span> {{file.name}}
-                    </span>
-                </li>
-            </ul>
-        </div> -->
-        <div class="col-md-3" ng-show="currentModule">
+        <div class="col-md-3" ng-show="currentModule" style=" max-height:350px;">
+        <table class="table" style="width:auto;">
+         <tbody ui-sortable ng-model="files">
             <ul id="car-list" class="list-group second">
                 <li class="list-group-item disabled">List of available files</li>
                 <!-- ========== Usage Drag ========== -->
@@ -51,6 +43,8 @@
                     </span>
                 </li>
             </ul>
+            </tbody>
+            </table>
         </div>
         <div class="col-md-3" ng-show="currentModule">
             <!-- ========== Usage Drop ========== -->

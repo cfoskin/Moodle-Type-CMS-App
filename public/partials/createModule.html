@@ -7,19 +7,24 @@
             <h3 class="panel-title text-center">
 Create a New Module</h3>
         </div>
-        <div class="panel-body">
+        <div class="panel-body" style=" min-height:350px;max-height:350px;">
             <form class="form-create-module" novalidate name="myForm">
+            <br>
                 <div class="form-group">
                     <label>
                         Module Name
                     </label>
                     <input type="text" class="form-control" type="text" placeholder="e.g: Enterprise Development" ng-model="newModule.name">
+                                        <br>
+
                     <div class="form-group">
                         <label>
                             Module Code
                         </label>
                         <input type="text" class="form-control" type="text" name="code" placeholder="e.g: WD028" ng-model="newModule.code" required>
                     </div>
+                    <hr>
+                    <br>
                       <label for="file-upload" class="custom-file-upload">
                                 <span class="glyphicon glyphicon-plus"></span> Choose a file
                             </label>
