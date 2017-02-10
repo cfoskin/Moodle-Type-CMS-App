@@ -4,27 +4,31 @@
 <div class="container-fluid">
     <div class="rows">
         <div class="col-md-6">
-            <div class="panel panel-default">
+
+
+<div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title text-center">
-                    Current Files List</h3>
+                         Current Files List</h3>
                 </div>
                 <div class="panel-body" style=" max-height:350px;">
-                    <table class="table">
+                    <table class="table" style="width:auto;">
                         <thead>
-                        <div class="alert alert-warning">
-                                        <strong>Warning!</strong> Deleting a file will also remove it from modules
-                                    </div>
+                            <br>
                         </thead>
-                        <tbody>
-                            <tr ng-repeat="file in files" class="t-row">
-                                <td>
-                                    <p>Name: {{file.name}}</p>
-                                    <button class="btn btn-xs pull-right btn-danger" ng-click="deleteFile(file)">delete</button>
-
-                                    <p> Source: <a href="{{file.url}}">{{file.url}}</a></p>
-                                </td>
-                            </tr>
+                        <tbody ui-sortable ng-model="files">
+                           <tr ng-repeat="file in files" class="t-row">
+                            <td>
+                                <p><b>Name: </b>{{file.name}}</p></a>
+                            </td>
+                             <td>
+                                 <p> <b>Source: </b><a href="{{file.url}}">{{file.url}}</a></p>
+                            </td>
+                            <td>
+                                <br>
+                                <button class="btn btn-xs pull-right btn-danger" ng-click="deleteFile(file)">delete</button>
+                            </td>
+                        </tr>
                         </tbody>
                         <br>
                     </table>
