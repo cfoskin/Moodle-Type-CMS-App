@@ -40,7 +40,6 @@ moodleApp.controller('manageFilesController',
                         fileService.postFile(file.result)
                             .then(function(res) {
                                 newFile = res.data.file;
-                                $location.path('/manageFiles');
                             })
                     });
                 }, function(response) {
@@ -48,6 +47,8 @@ moodleApp.controller('manageFilesController',
                         $scope.errorMsg = response.status + ': ' + response.data;
                 }, function(evt) {
                     file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+                    
                 });
+                $location.path('/manageFiles');
         }
     });

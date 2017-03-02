@@ -4,7 +4,6 @@ moodleApp.controller('homeController',
     function($scope, $rootScope, $location, moduleService, fileService) {
         $scope.loggedInUser = $rootScope.loggedInUser;
 
-
         fileService.getAll().then(function(res) {
             let files = res.data;
             $scope.files = files;
@@ -53,13 +52,13 @@ moodleApp.controller('homeController',
             });
         }
 
-        $scope.onDragStart = function() {
+        // $scope.onDragStart = function() {
 
-        };
+        // };
 
-        $scope.onDragEnd = function() {
+        // $scope.onDragEnd = function() {
 
-        };
+        // };
 
         $scope.onDragOver = function(data, dragElement, dropElement) {
             $scope.currentDropElement = dropElement;
@@ -78,7 +77,8 @@ moodleApp.controller('homeController',
                     $scope.currentModule.files.forEach(function(file) {
                         tempModule.name = $scope.currentModule.name;
                         tempModule.id = $scope.currentModule._id;
-                        if (file.modules.length < 1) {
+                        if(file.modules){
+                             if (file.modules.length < 1) {
                             file.modules = [];
                         } else {
                             file.modules = file.modules;
@@ -92,6 +92,8 @@ moodleApp.controller('homeController',
 
                         file.modules.push(tempModule);
                         
+                        }
+                
                         tempModule = {};
 
                         fileService.updateFile(file).then(function(res) {
