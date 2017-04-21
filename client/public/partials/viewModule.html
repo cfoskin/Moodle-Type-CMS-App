@@ -1,0 +1,43 @@
+<navbar-directive></navbar-directive>
+<img src="/images/moodle.png" alt="moodle" style="width:600px;height:100px;">
+<hr>
+<div class="container-fluid">
+    <div class="rows">
+        <div class="col-md-12">
+            <div class="panel panel-default" align="center">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">
+                    Module Information</h3>
+                </div>
+                <div class="panel-body" style=" max-height:350px;">
+                    <table class="table" style="width:auto;" ng-model="currentModule">
+                        <tr class="t-row">
+                            <th>
+                                <h3>Module Name</h3></th>
+                            <th>
+                                <h3>Module Code</h3></th>
+                            <th>
+                                <h3>Number of Files</h3></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h3>{{currentModule.name}}</h3></td>
+                            <td>
+                                <h3>{{currentModule.code}}</h3></td>
+                            <td><h3>{{currentModule.files.length}}</h3>
+                            </td>
+                             <td>
+                                    <br>
+                                    <button class="btn btn-small pull-right btn-danger" btn-inverse ng-click="deleteModule(currentModule)">Delete Module</button>
+                                </td>
+                        </tr>
+                        <br>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<hr>
+<hr>

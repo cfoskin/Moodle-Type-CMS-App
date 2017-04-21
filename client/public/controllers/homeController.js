@@ -38,6 +38,7 @@ moodleApp.controller('homeController',
             if (index > -1) {
                 $scope.currentModule.files.splice(index, 1);
             }
+            debugger;
             if (file.modules) {
                 var moduleIndex = file.modules.findIndex(item => item.id === $scope.currentModule._id);
                 if (moduleIndex > -1) {
@@ -74,12 +75,6 @@ moodleApp.controller('homeController',
                         } else {
                             file.modules = file.modules;
                         }
-                        // debugger;
-                        // file.modules.forEach(function(module) {
-                        //     if(module != tempModule){
-                        //         file.modules.push(tempModule);
-                        //     }
-                        // })
 
                         file.modules.push(tempModule);
                         
