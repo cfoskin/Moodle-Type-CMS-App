@@ -5,13 +5,13 @@ moodleApp.controller('logInController',
          $rootScope.loggedInUser = null;
          $rootScope.showNavbar =  false;
 
-        $scope.logIn = function() {
+        $scope.logIn = () => {
             let username = $scope.username
             let password = $scope.password;
 
-            userService.getAll().then(function(res) {
+            userService.getAll().then((res) => {
                 let users = res.data;
-                users.forEach(function(user) {
+                users.forEach((user) => {
                     if (user.username === username && user.password === password) {
                         $rootScope.loggedInUser = user;
                         $rootScope.showNavbar = true;
