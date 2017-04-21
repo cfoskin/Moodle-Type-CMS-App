@@ -4,12 +4,12 @@ moodleApp.controller('homeController',
     function($scope, $rootScope, $location, moduleService, fileService) {
         $scope.loggedInUser = $rootScope.loggedInUser;
 
-        fileService.getAll().then(function(res) {
+        fileService.getAll().then((res) => {
             let files = res.data;
             $scope.files = files;
         });
 
-        moduleService.getAll().then(function(res) {
+        moduleService.getAll().then((res) => {
             let modules = res.data;
             $scope.modules = modules;
             $scope.models = {
@@ -19,21 +19,21 @@ moodleApp.controller('homeController',
         });
         $scope.currentModule = null;
 
-        $scope.editModule = function(module) {
+        $scope.editModule = (module) => {
             $scope.currentModule = module;
             $scope.models.moduleFiles = $scope.currentModule.files;
         }
 
         $scope.currentDropElement = null;
 
-        $scope.remove = function(l, o) {
+        $scope.remove = (l, o) => {
             var index = l.indexOf(o);
             if (index > -1) {
                 l.splice(index, 1);
             }
         };
 
-        $scope.deleteFile = function(file) {
+        $scope.deleteFile = (file)=> {
             var index = $scope.currentModule.files.indexOf(file);
             if (index > -1) {
                 $scope.currentModule.files.splice(index, 1);
@@ -44,37 +44,28 @@ moodleApp.controller('homeController',
                     file.modules.splice(moduleIndex, 1);
                 }
             }
-            moduleService.updateModule($scope.currentModule).then(function(res) {
-
-                fileService.updateFile(file).then(function(res) {
+            moduleService.updateModule($scope.currentModule).then((res) => {
+                fileService.updateFile(file).then((res) =>{
                     $location.path('/home');
                 });
             });
         }
 
-        // $scope.onDragStart = function() {
-
-        // };
-
-        // $scope.onDragEnd = function() {
-
-        // };
-
-        $scope.onDragOver = function(data, dragElement, dropElement) {
+        $scope.onDragOver = (data, dragElement, dropElement) => {
             $scope.currentDropElement = dropElement;
         };
 
-        $scope.onDragLeave = function() {
+        $scope.onDragLeave = () => {
             $scope.currentDropElement = null;
         };
 
-        $scope.onDrop = function(data) {
+        $scope.onDrop = (data) => {
             if (data && $scope.currentDropElement) {
                 if (!$scope.currentModule.files.includes(data)) {
                     $scope.currentModule.files.push(data);
                     let tempModule = {};
 
-                    $scope.currentModule.files.forEach(function(file) {
+                    $scope.currentModule.files.forEach((file) =>{
                         tempModule.name = $scope.currentModule.name;
                         tempModule.id = $scope.currentModule._id;
                         if(file.modules){
@@ -96,8 +87,8 @@ moodleApp.controller('homeController',
                 
                         tempModule = {};
 
-                        fileService.updateFile(file).then(function(res) {
-                            moduleService.updateModule($scope.currentModule).then(function(res) {
+                        fileService.updateFile(file).then((res) =>{
+                            moduleService.updateModule($scope.currentModule).then((res)=> {
                                 $location.path('/home');
                             });
                         });

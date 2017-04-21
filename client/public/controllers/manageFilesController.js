@@ -3,28 +3,28 @@ var moodleApp = angular.module('moodleApp');
 moodleApp.controller('manageFilesController',
     function($scope, $rootScope, $location, $http, moduleService, fileService, Upload, $timeout) {
         
-    	 fileService.getAll().then(function(res) {
+    	 fileService.getAll().then((res) => {
             let files = res.data;
             $scope.files = files;
         });
 
     	$scope.currentFile = null;
 
-    	 $scope.deleteFile = function(file) {
+    	 $scope.deleteFile = (file) => {
             var index = $scope.files.indexOf(file);
             if (index > -1) {
                 $scope.files.splice(index, 1);
-                fileService.deleteFile(file._id).then(function(res) {
+                fileService.deleteFile(file._id).then((res) => {
                     $location.path('/manageFiles');
                 });
             }
         }
 
-        $scope.viewFileInfo = function(file) {
+        $scope.viewFileInfo = (file) => {
             $scope.currentFile = file;
         }
 
-        $scope.uploadFile = function(file) {
+        $scope.uploadFile = (file) => {
             var file = $scope.file;
             file.upload = Upload.upload({
                 url: '/api/upload',
@@ -33,19 +33,19 @@ moodleApp.controller('manageFilesController',
                 }
             });
             file.upload
-                .then(function(response) {
+                .then((response) => {
                     let newFile = {};
-                    $timeout(function() {
+                    $timeout(() => {
                         file.result = response.data;
                         fileService.postFile(file.result)
-                            .then(function(res) {
+                            .then((res) => {
                                 newFile = res.data.file;
                             })
                     });
-                }, function(response) {
+                }, (response) => {
                     if (response.status > 0)
                         $scope.errorMsg = response.status + ': ' + response.data;
-                }, function(evt) {
+                }, (evt) => {
                     file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
                     
                 });

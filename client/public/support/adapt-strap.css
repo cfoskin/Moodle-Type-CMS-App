@@ -251,3 +251,10 @@
   box-sizing: border-box;
   margin: 2px 0 0;
 }
+.appadd {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 10px;
+    height: 10px;
+    text-overflow: ellipsis; 
+}
