@@ -1,5 +1,5 @@
 'use strict';
-const Module = require('../models/module');
+const Module = require('../models/Module');
 
 exports.addModule = (req, res) => {
     const module = new Module(req.body);

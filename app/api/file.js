@@ -1,5 +1,5 @@
 'use strict';
-const File = require('../models/file');
+const File = require('../models/File');
 const AWS = require('aws-sdk');
 const path = require('path');
 AWS.config.loadFromPath(path.join(__dirname, '../../config/awsConfig.json'));
