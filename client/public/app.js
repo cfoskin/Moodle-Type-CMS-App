@@ -4,7 +4,7 @@ moodleApp.config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: '/partials/login.html',
+                templateUrl: '/partials/logIn.html',
                 controller: 'logInController'
             })
             .when('/home', {
