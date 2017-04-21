@@ -22,9 +22,9 @@ app.use(multipart({
     uploadDir: config.tmp
 }));
 
-app.use('/', express.static(path.join(__dirname, './public')));
+app.use('/', express.static(path.join(__dirname, './client/public')));
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, './public/views/index.html'));
+    res.sendFile(path.join(__dirname, './client/public/views/index.html'));
 });
 
 var db;

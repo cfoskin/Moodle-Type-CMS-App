@@ -24,12 +24,18 @@ Create a New Module</h3>
                         <input type="text" class="form-control" type="text" name="code" placeholder="e.g: WD028" ng-model="newModule.code" required>
                     </div>
                     <hr>
-                    <br>
+                    <label>
+                            Add Files
+                        </label>
+                    <div class="form-group">
+                    <!--  <select ng-model="file" ng-options="file.name for file in files">
+                    </select> -->
                       <label for="file-upload" class="custom-file-upload">
                                 <span class="glyphicon glyphicon-plus"></span> Choose a file
                             </label>
                     <input type="file" id="file-upload" ngf-select ng-model="file" name="file" accept="image/*, application/pdf" ngf-model-invalid="errorFile">
                     <button class="btn btn-xs btn-danger" ng-click="file=null" ng-show="file">Remove</button>
+                    </div>
                     <br>
                     <button class="btn pull-right btn-warning" ng-click="createModule($file)">Submit</button>
                     <span class="progress" ng-show="file.progress >= 0">

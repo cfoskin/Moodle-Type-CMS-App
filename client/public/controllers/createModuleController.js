@@ -42,5 +42,13 @@ moodleApp.controller('createModuleController',
                         $location.path('/home');
                     });
             }
-        }
+        };
+
+
+        fileService.getAll().then(function(res) {
+            let files = res.data;
+            $scope.files = files;
+        });
+
+        
     });
