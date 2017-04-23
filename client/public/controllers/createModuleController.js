@@ -3,7 +3,7 @@ var moodleApp = angular.module('moodleApp');
 moodleApp.controller('createModuleController',
     function($scope, $rootScope, $location, $http, moduleService, fileService, Upload, $timeout) {
         $scope.createModule = (file) => {
-
+            if ($scope.newModule){
             var file = $scope.file;
             if (file) {
                 file.upload = Upload.upload({
@@ -42,6 +42,10 @@ moodleApp.controller('createModuleController',
                         $location.path('/home');
                     });
             }
+        } else{
+             alert("Must enter data");
+                        $location.path('/createModule');
+        }
         };
 
 

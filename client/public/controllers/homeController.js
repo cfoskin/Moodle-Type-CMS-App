@@ -65,7 +65,7 @@ moodleApp.controller('homeController',
                     $scope.currentModule.files.push(data);
                     let tempModule = {};
 
-                    $scope.currentModule.files.forEach((file) =>{
+                    $scope.currentModule.files.forEach((file) => {
                         tempModule.name = $scope.currentModule.name;
                         tempModule.id = $scope.currentModule._id;
                         if(file.modules){
@@ -74,12 +74,6 @@ moodleApp.controller('homeController',
                         } else {
                             file.modules = file.modules;
                         }
-                        // debugger;
-                        // file.modules.forEach(function(module) {
-                        //     if(module != tempModule){
-                        //         file.modules.push(tempModule);
-                        //     }
-                        // })
 
                         file.modules.push(tempModule);
                         

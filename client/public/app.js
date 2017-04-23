@@ -19,6 +19,10 @@ moodleApp.config(['$routeProvider', '$locationProvider',
                 templateUrl: '/partials/manageFiles.html',
                 controller: 'manageFilesController'
             })
+             .when('/viewModule/:id', {
+                templateUrl: '/partials/viewModule.html',
+                controller: 'viewModuleController'
+            })
             .otherwise({
                 redirectTo: '/'
             });
