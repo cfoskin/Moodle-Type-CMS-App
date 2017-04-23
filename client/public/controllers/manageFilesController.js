@@ -25,7 +25,9 @@ moodleApp.controller('manageFilesController',
         }
 
         $scope.uploadFile = (file) => {
-            var file = $scope.file;
+            if($scope.file){
+                   var file = $scope.file;
+
             file.upload = Upload.upload({
                 url: '/api/upload',
                 data: {
@@ -50,5 +52,10 @@ moodleApp.controller('manageFilesController',
                     
                 });
                 $location.path('/manageFiles');
+            }
+         else{
+            alert("No File selected");
+                        $location.path('/manageFiles');
+         }
         }
     });
