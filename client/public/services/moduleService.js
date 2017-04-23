@@ -13,6 +13,9 @@ angular.module('moodleApp')
       },
       updateModule : function(module) {
         return $http.put('/api/modules/' + module._id, module);
+      },
+      deleteModule : function(module) {
+        return $http.delete('/api/modules/' + module._id);
       }
   };
   return api;
