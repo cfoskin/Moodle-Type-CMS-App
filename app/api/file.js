@@ -9,7 +9,6 @@ const fs = require('fs');
 exports.uploadToS3 = (req, res) => {
     let bucket;
     let file = req.files.file;
-
     s3.listBuckets((err, data) => {
         if (err) {
             return console.log("Error", err);
@@ -105,7 +104,7 @@ exports.getFile = (req, res) => {
             }
         })
         .catch(err => {
-            return res.status(400).json({
+            return res.status(404).json({
                 message: 'file not found',
                 error: err
             });
