@@ -54,11 +54,10 @@ moodleApp.controller('createModuleController',
                     $location.path('/createModule');
                 }
 
+            } else {
+                alert("log in to create a module");
+                $location.path('/createModule');
             }
-            else {
-                    alert("log in to create a module");
-                    $location.path('/logIn');
-                }
         };
 
 
