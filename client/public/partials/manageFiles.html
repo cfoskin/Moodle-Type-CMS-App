@@ -75,11 +75,15 @@
                 <div class="panel-body" style=" max-height:185px;" >
                     <table class="table" style="width:auto;">
                         <tbody >
-                           <tr ng-repeat="module in currentFile.modules" class="t-row">
+                           <tr ng-repeat="module in currentFile.modules" class="t-row" ng-show="currentFile.modules.length > 0" >
                             <td>
                                 <p><b>Name: </b>{{module.name}}</p>
                             </td>
-                            
+                            </tr>
+                             <tr class="t-row" ng-show="!currentFile.modules.length > 0">
+                            <td>
+                                <p><b>Not currently being used</b></p>
+                            </td>
                             </tr>
                         </tbody>
                         <br>

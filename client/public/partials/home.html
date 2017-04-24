@@ -21,7 +21,7 @@
                                 </td>
                                 <td>
                                     <br>
-                                    <button class="btn btn-xs pull-right btn-warning" btn-inverse ng-click="editModule(module)">manage module files</button>
+                                    <button class="btn btn-xs pull-right btn-warning" btn-inverse ng-click="editModule(module)">Manage module files</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -35,7 +35,7 @@
             <table class="table" style="width:auto;">
                 <tbody ui-sortable ng-model="files">
                     <ul id="car-list" class="list-group second">
-                        <li class="list-group-item disabled">List of available files</li>
+                        <li class="list-group-item disabled">List of Available Files</li>
                         <!-- ========== Usage Drag ========== -->
                         <li class="list-group-item" ad-drag="true" ad-drag-data="file" ad-drag-begin="onDragStart($data, $dragElement, $event);" ad-drag-end="onDragEnd($data, $dragElement, $lastDropElement, $event);" ng-repeat="file in models.files">
                             <span>
