@@ -4,9 +4,7 @@
 <div class="container-fluid">
     <div class="rows">
         <div class="col-md-6">
-
-
-<div class="panel panel-default">
+            <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title text-center">
                          Current Files List</h3>
@@ -17,22 +15,21 @@
                             <br>
                         </thead>
                         <tbody ui-sortable ng-model="files">
-                           <tr ng-repeat="file in files" class="t-row">
-                            <td>
-                                <p><b>Name: </b>{{file.name}}</p>
-                            </td>
-                             <td>
-                                 <p> <b>Source: </b><a href="{{file.url}}">{{file.url}}</a></p>
-                            </td>
-                            <td>
-                            <br>
-                            <button class="btn btn-xs pull-right btn-warning" ng-click="viewFileInfo(file)">Info</button>
-                            </td>
-                            <td>
-                                <br>
-                                <button class="btn btn-xs pull-right btn-danger" ng-click="deleteFile(file)">Delete</button>
-                            </td>
-
+                            <tr ng-repeat="file in files" class="t-row">
+                                <td>
+                                    <p><b>Name: </b>{{file.name}}</p>
+                                </td>
+                                <td>
+                                    <p> <b>Source: </b><a href="{{file.url}}">{{file.url}}</a></p>
+                                </td>
+                                <td>
+                                    <br>
+                                    <button class="btn btn-xs pull-right btn-warning" ng-click="viewFileInfo(file)">Info</button>
+                                </td>
+                                <td>
+                                    <br>
+                                    <button class="btn btn-xs pull-right btn-danger" ng-click="deleteFile(file)">Delete</button>
+                                </td>
                             </tr>
                         </tbody>
                         <br>
@@ -72,18 +69,18 @@
                     <h3 class="panel-title text-center">
                    Modules where <i><b>{{currentFile.name}}<i></b> is being used in</h3>
                 </div>
-                <div class="panel-body" style=" max-height:185px;" >
+                <div class="panel-body" style=" max-height:185px;">
                     <table class="table" style="width:auto;">
-                        <tbody >
-                           <tr ng-repeat="module in currentFile.modules" class="t-row" ng-show="currentFile.modules.length > 0" >
-                            <td>
-                                <p><b>Name: </b>{{module.name}}</p>
-                            </td>
+                        <tbody>
+                            <tr ng-repeat="module in currentFile.modules" class="t-row" ng-show="currentFile.modules.length > 0">
+                                <td>
+                                    <p><b>Name: </b>{{module.name}}</p>
+                                </td>
                             </tr>
-                             <tr class="t-row" ng-show="!currentFile.modules.length > 0">
-                            <td>
-                                <p><b>Not currently being used</b></p>
-                            </td>
+                            <tr class="t-row" ng-show="!currentFile.modules.length > 0">
+                                <td>
+                                    <p><b>Not currently being used</b></p>
+                                </td>
                             </tr>
                         </tbody>
                         <br>
