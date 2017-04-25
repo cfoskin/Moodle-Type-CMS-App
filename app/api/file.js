@@ -6,6 +6,9 @@ AWS.config.loadFromPath(path.join(__dirname, '../../config/awsConfig.json'));
 const s3 = new AWS.S3({ apiVersion: '2006-03-01' });
 const fs = require('fs');
 
+/*
+endpoint for upoloading files to ss bucket
+*/
 exports.uploadToS3 = (req, res) => {
     let bucket;
     let file = req.files.file;
